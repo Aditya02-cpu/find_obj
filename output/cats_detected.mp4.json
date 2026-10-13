@@ -1,0 +1,209 @@
+{
+  "input": "D:\\find_obj\\models\\cats.mp4",
+  "output": "D:\\find_obj\\output\\cats_detected.mp4",
+  "model": "tiny-yolov3",
+  "min_confidence": 30,
+  "objectness_gate": 0.3,
+  "frame_interval": 1,
+  "output_fps": 10.0,
+  "frames_analysed": 12,
+  "top_objects": [
+    {
+      "name": "cat",
+      "total_instances": 10
+    }
+  ],
+  "average_instances_per_frame": {
+    "cat": 0.833
+  },
+  "per_frame": [
+    {
+      "frame": 1,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 82.93,
+          "box_points": [
+            20,
+            80,
+            308,
+            388
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 89.43,
+          "box_points": [
+            28,
+            81,
+            305,
+            379
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "counts": {},
+      "objects": []
+    },
+    {
+      "frame": 4,
+      "counts": {},
+      "objects": []
+    },
+    {
+      "frame": 5,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 97.13,
+          "box_points": [
+            44,
+            76,
+            317,
+            384
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 95.14,
+          "box_points": [
+            47,
+            76,
+            314,
+            381
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 71.74,
+          "box_points": [
+            365,
+            24,
+            639,
+            354
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "counts": {},
+      "objects": []
+    },
+    {
+      "frame": 9,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 73.56,
+          "box_points": [
+            367,
+            20,
+            640,
+            363
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 10,
+      "counts": {
+        "cat": 2
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 64.29,
+          "box_points": [
+            369,
+            21,
+            640,
+            367
+          ]
+        },
+        {
+          "name": "cat",
+          "percentage_probability": 93.38,
+          "box_points": [
+            81,
+            89,
+            354,
+            376
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 11,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 54.8,
+          "box_points": [
+            379,
+            23,
+            640,
+            364
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 12,
+      "counts": {
+        "cat": 1
+      },
+      "objects": [
+        {
+          "name": "cat",
+          "percentage_probability": 81.79,
+          "box_points": [
+            386,
+            25,
+            640,
+            356
+          ]
+        }
+      ]
+    }
+  ],
+  "processed_at": "2026-10-08T17:03:00.523573+00:00"
+}

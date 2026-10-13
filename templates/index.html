@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisionLab · Image Classification</title>
+  <meta name="description" content="Upload an image and run ML classification — Flask + SQLAlchemy + Pillow." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>" />
+</head>
+<body>
+  <!-- ============================ Header / Hero ============================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">◈</span>
+        <div>
+          <h1 class="brand-title">VisionLab</h1>
+          <p class="brand-sub">Upload · Classify · Archive</p>
+        </div>
+      </div>
+      <span class="backend-badge" title="Active inference backend">
+        <span class="dot" aria-hidden="true"></span>
+        {{ model_backend }}
+      </span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ============================ Upload panel =========================== -->
+    <section class="panel" aria-labelledby="upload-heading">
+      <div class="panel-head">
+        <h2 id="upload-heading">New prediction</h2>
+        <p class="panel-sub">Drop an image or browse — accepted: <strong>.jpg</strong> <strong>.jpeg</strong> <strong>.png</strong> <strong>.webp</strong> · max 8&nbsp;MB</p>
+      </div>
+
+      <form id="predict-form" enctype="multipart/form-data" novalidate>
+        <!-- Drag & drop zone -->
+        <div id="dropzone" class="dropzone" role="button" tabindex="0"
+             aria-label="Drop an image here or press Enter to browse files">
+          <input type="file" id="file-input" name="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" hidden />
+          <div class="dropzone-inner" id="dropzone-empty">
+            <div class="dropzone-icon" aria-hidden="true">⬆</div>
+            <p class="dropzone-title">Drag &amp; drop your image here</p>
+            <p class="dropzone-hint">or <span class="link-like">browse files</span></p>
+          </div>
+          <img id="preview" class="preview hidden" alt="Selected image preview" />
+        </div>
+
+        <div class="actions">
+          <button type="button" id="clear-btn" class="btn btn-ghost hidden">Clear</button>
+          <button type="submit" id="analyze-btn" class="btn btn-primary" disabled>
+            <span class="btn-label">Analyze image</span>
+            <span class="spinner hidden" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <p id="upload-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- Result card (filled in by main.js after POST /predict) -->
+      <article id="result-card" class="result-card hidden" aria-live="polite">
+        <div class="result-media">
+          <img id="result-image" alt="Analyzed image" />
+        </div>
+        <div class="result-body">
+          <p class="result-kicker">Prediction</p>
+          <h3 id="result-label" class="result-label">—</h3>
+          <div class="meter">
+            <div class="meter-bar"><span id="result-meter-fill"></span></div>
+            <span id="result-confidence" class="meter-value">0%</span>
+          </div>
+          <p class="result-file" id="result-file"></p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================= Gallery ============================== -->
+    <section class="panel" aria-labelledby="gallery-heading">
+      <div class="panel-head panel-head-row">
+        <div>
+          <h2 id="gallery-heading">Prediction history</h2>
+          <p class="panel-sub">Stored in SQLite · newest first</p>
+        </div>
+        <div class="gallery-tools">
+          <span id="gallery-count" class="count-chip">0</span>
+          <button type="button" id="refresh-btn" class="btn btn-ghost btn-sm" title="Reload gallery">↻ Refresh</button>
+        </div>
+      </div>
+
+      <div id="gallery" class="gallery">
+        <p id="gallery-empty" class="empty-state">No predictions yet — upload an image above to get started.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast for errors / notices -->
+  <div id="toast" class="toast hidden" role="alert"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      Built with Flask · SQLAlchemy · Pillow · NumPy{% if model_backend.startswith('MobileNetV2') %} · torchvision{% endif %}
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

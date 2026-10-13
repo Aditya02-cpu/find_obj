@@ -1,0 +1,10 @@
+{
+  "input": "D:\\find_obj\\truck.jpg",
+  "output": "D:\\find_obj\\output\\truck_detected.jpg",
+  "model": "tiny-yolov3",
+  "min_confidence": 40,
+  "objectness_gate": 0.5,
+  "objects_detected": 0,
+  "detections": [],
+  "processed_at": "2026-10-08T17:05:34.578479+00:00"
+}

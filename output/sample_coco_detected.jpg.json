@@ -1,0 +1,21 @@
+{
+  "input": "D:\\find_obj\\models\\sample_coco.jpg",
+  "output": "D:\\find_obj\\output\\sample_coco_detected.jpg",
+  "model": "tiny-yolov3",
+  "min_confidence": 30,
+  "objectness_gate": 0.5,
+  "objects_detected": 1,
+  "detections": [
+    {
+      "name": "cat",
+      "percentage_probability": 91.2,
+      "box_points": [
+        18,
+        81,
+        307,
+        384
+      ]
+    }
+  ],
+  "processed_at": "2026-10-08T17:02:13.936426+00:00"
+}

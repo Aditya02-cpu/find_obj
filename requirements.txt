@@ -1,0 +1,25 @@
+# ---------------------------------------------------------------------------
+# Core dependencies (web app: app.py / app1.py)
+# ---------------------------------------------------------------------------
+Flask>=3.0
+Flask-SQLAlchemy>=3.1
+SQLAlchemy>=2.0
+Werkzeug>=3.0
+Pillow>=10.3
+NumPy>=1.26
+
+# ---------------------------------------------------------------------------
+# Object detection (detect.py) — ImageAI 3.x runs on the PyTorch backend.
+# torch and torchvision MUST be a matched pair; opencv-python provides the
+# 'cv2' module that imageai.Detection imports at module load.
+# ---------------------------------------------------------------------------
+imageai>=3.0.3
+torch>=2.2
+torchvision>=0.17
+opencv-python>=4.8
+
+# ---------------------------------------------------------------------------
+# OPTIONAL — GPU inference. Replace the torch/torchvision lines above with a
+# CUDA build, then run detect.py WITHOUT --cpu (ImageAI auto-selects cuda):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# ---------------------------------------------------------------------------
